@@ -13,7 +13,7 @@ prebuilt as a jar library. Any updates to the Library Project should be
 committed with an updated jar.
 
 ## Using the plugin ##
-The plugin creates the object `cordova/plugin/BarcodeScanner` with the method `scan(success, fail)`. 
+The plugin creates the object `plugins.barcodeScanner` with the method `scan(success, fail)`. 
 
 The following barcode types are currently supported:
 ### Android
@@ -49,7 +49,7 @@ The following barcode types are currently supported:
 
 A full example could be:
 ```
-   var scanner = cordova.require("cordova/plugin/BarcodeScanner");
+   var scanner = cordova.require("com.phonegap.plugins.barcodescanner");
 
    scanner.scan(
       function (result) {
@@ -76,7 +76,7 @@ Supported encoding types:
 ```
 A full example could be:
 
-   var scanner = cordova.require("cordova/plugin/BarcodeScanner");
+   var scanner = cordova.require("com.phonegap.plugins.barcodescanner");
 
    scanner.encode(BarcodeScanner.Encode.TEXT_TYPE, "http://www.nytimes.com", function(success) {
   	        alert("encode success: " + success);
