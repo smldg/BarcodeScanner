@@ -12,6 +12,9 @@ plugman currently doesn't support Library Project refs, so its been
 prebuilt as a jar library. Any updates to the Library Project should be
 committed with an updated jar.
 
+Note: the WP8 source does not include the ZXing.Net library, so it has to
+be included during installation.
+
 ## Using the plugin ##
 The plugin creates the object `plugins.barcodeScanner` with the method `scan(success, fail)`. 
 
@@ -62,6 +65,21 @@ The following barcode types are currently supported:
 * PDF417
 * MSI
 
+## Installing the plugin ##
+
+1. Download the repo using GIT or just a ZIP from Github.
+2. Add the plugin to your project (from the root of your project):
+
+```
+   cordova plugin add <path_download_plugin>
+```
+
+Windows Phone 8 needs some more steps:
+
+1. Open your project on Visual Studio 2012.
+2. Right click on `References`, select `Magange NuGet Packages`.
+3. Search online for `ZXing.Net` (created by Michael Jahn at http://zxingnet.codeplex.com).
+4. Install it.
 
 `success` and `fail` are callback functions. Success is passed an object with data, type and cancelled properties. Data is the text representation of the barcode data, type is the type of barcode detected and cancelled is whether or not the user cancelled the scan.
 
