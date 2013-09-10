@@ -45,11 +45,29 @@ The following barcode types are currently supported:
 * CODE_39
 * ITF
 
+### WP8
+
+* QR_CODE
+* DATA_MATRIX
+* UPC_E
+* UPC_A
+* EAN_8
+* EAN_13
+* CODE_128
+* CODE_39
+* CODE_93
+* CODABAR
+* ITF
+* RSS14
+* PDF417
+* MSI
+
+
 `success` and `fail` are callback functions. Success is passed an object with data, type and cancelled properties. Data is the text representation of the barcode data, type is the type of barcode detected and cancelled is whether or not the user cancelled the scan.
 
 A full example could be:
 ```
-   var scanner = cordova.require("com.phonegap.plugins.barcodescanner");
+   var scanner = cordova.require("com.phonegap.plugins.barcodescanner.barcodescanner");
 
    scanner.scan(
       function (result) {
@@ -76,7 +94,7 @@ Supported encoding types:
 ```
 A full example could be:
 
-   var scanner = cordova.require("com.phonegap.plugins.barcodescanner");
+   var scanner = cordova.require("com.phonegap.plugins.barcodescanner.barcodescanner");
 
    scanner.encode(BarcodeScanner.Encode.TEXT_TYPE, "http://www.nytimes.com", function(success) {
   	        alert("encode success: " + success);
