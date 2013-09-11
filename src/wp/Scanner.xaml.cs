@@ -74,13 +74,14 @@ namespace barcodescanner
 
         protected override void OnNavigatedFrom(System.Windows.Navigation.NavigationEventArgs e)
         {
-            stopCamera();
 
             if (timer != null)
             {
                 timer.Stop();
                 timer = null;
             }
+
+            stopCamera();
 
             if (this.Completed != null)
             {
@@ -130,8 +131,6 @@ namespace barcodescanner
             FrameworkDispatcher.Update();
             scanEffect.Play();
 
-            stopCamera();
-
             if (this.NavigationService.CanGoBack)
             {
                 this.NavigationService.GoBack();
@@ -140,6 +139,7 @@ namespace barcodescanner
 
         private bool stopCamera()
         {
+
             if (_photoCamera == null)
             {
                 return false;
@@ -148,8 +148,11 @@ namespace barcodescanner
             _luminance = null;
             _reader = null;
 
+            _photoCamera.Initialized -= OnPhotoCameraInitialized;
             _photoCamera.Dispose();
+
             CameraButtons.ShutterKeyHalfPressed -= OnButtonHalfPress; 
+
             _photoCamera = null;
 
             return true;
