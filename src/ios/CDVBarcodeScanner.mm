@@ -145,7 +145,7 @@
     NSString *overlayXib = nil;
     if ( [arguments count] == 1 )
     {
-        overlayXib = [arguments objectAtIndex:1];
+        overlayXib = [arguments objectAtIndex:0];
     }
     
     capabilityError = [self isScanNotPossible];
